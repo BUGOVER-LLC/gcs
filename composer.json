@@ -1,0 +1,31 @@
+{
+  "name": "vendor_name/gcs",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "artak",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "league/flysystem-google-cloud-storage": "^3.0.0"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Service\\GCS\\Provider"
+      ]
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Service\\GCS\\": "src/"
+    }
+  }
+}
