@@ -10,7 +10,6 @@ use Google\Cloud\Storage\Connection\Rest;
 use Google\Cloud\Storage\StorageClient;
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Arr;
-use League\Flysystem\DirectoryListing;
 use League\Flysystem\FilesystemOperator;
 use League\Flysystem\GoogleCloudStorage\GoogleCloudStorageAdapter as FlysystemGoogleCloudAdapter;
 use RuntimeException;
@@ -67,6 +66,9 @@ class Adapter extends FilesystemAdapter
         return $this->getBucket()->object($this->prefixer->prefixPath($path))->signedUrl($expiration, $options);
     }
 
+    /**
+     * @return Bucket
+     */
     private function getBucket(): Bucket
     {
         return $this->client->bucket(Arr::get($this->config, 'bucket'));
