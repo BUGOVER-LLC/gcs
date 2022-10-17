@@ -66,9 +66,6 @@ class Adapter extends FilesystemAdapter
         return $this->getBucket()->object($this->prefixer->prefixPath($path))->signedUrl($expiration, $options);
     }
 
-    /**
-     * @return Bucket
-     */
     private function getBucket(): Bucket
     {
         return $this->client->bucket(Arr::get($this->config, 'bucket'));
